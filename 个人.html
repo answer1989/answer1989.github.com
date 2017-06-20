@@ -44,8 +44,6 @@
         
         <li id=""><a target="_self" href="archives.html">Archives</a></li>
         
-        <li id=""><a target="_self" href="www.baidu.com">test</a></li>
-        
         </ul>
 
         <ul class="right" id="search-wrap">
@@ -79,8 +77,6 @@
 
         
             <li><a href="%E4%B8%AA%E4%BA%BA.html">个人</a></li>
-        
-            <li><a href="%E6%8A%80%E6%9C%AF.html">技术</a></li>
          
 
       </ul>
@@ -103,75 +99,18 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="14979476632624.html">
+                <a class="clearlink" href="14979512018364.html">
                 
-                  <h1>test</h1>
+                  <h1>悲剧了。。。</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<p>View的显示过程的三个步骤，onMeasure，onLayout，onDraw。</p>
+                        	<p>mac电脑居然卡死在开机界面，不停的关机重启，试了多种重启的方案，还是不行。。</p>
 
-<h3 id="toc_0">onMeasure过程</h3>
+<p>最关键的是电脑没有用时间胶囊备份过。。。</p>
 
-<p>TextView是如何确定自己的宽度和高度的，是由TextView中的Layout来决定的。</p>
-
-<ul>
-<li><em>makeNewLayout</em>函数生成一个TextView使用的Layout，其中最主要的是通过<em>makeSingleLayout</em>函数来生成，Layout有以下三种
-
-<ul>
-<li>BoringLayout，只有一行从左到右的纯文字的Layout</li>
-<li>DynamicLayout，当文字类型为Spanbale时候，使用的Layout，同时也是可以动态改变的Layout，最终的渲染过程还是由StaticLayout完成</li>
-<li>StaticLayout，只能用于静态显示的Layout</li>
-<li>StaticLayout生成过程中，是什么样子的
-
-<ul>
-<li>分析整体文本</li>
-<li>拆分为段落</li>
-<li>计算整体段落的文本测量信息</li>
-<li>对文本进行折行</li>
-<li>根据最终行数把文本测量信息保存 </li>
-</ul></li>
-</ul></li>
-<li>通过生成Layout后，可以得到文本最终的显示排版，其中会包含这些文本显示需要的宽度和高度，至此，就确定了TextView的宽和高</li>
-</ul>
-
-<h3 id="toc_1">onLayout的过程</h3>
-
-<p>这个和普通的View的过程一样</p>
-
-<h3 id="toc_2">onDraw的过程</h3>
-
-<p>文本的渲染和显示都是由TextView中的Layout去完成的<br/>
-主要包含两步<br/>
-* drawBackground，绘制高亮的文字的背景<br/>
-* drawText，绘制文字<br/>
-  * 如果是纯文字，那么是由canvas.drawText函数完成 <br/>
-    * canvas.drawText，绘制的Text是如何确定显示位置的<br/>
-    * <a href="http://blog.csdn.net/harvic880925/article/details/50423762">http://blog.csdn.net/harvic880925/article/details/50423762</a><br/>
-  * 如果是Spanned Text，那么是由TextLine的draw函数完成<br/>
-    * Spanned Text是如何被绘制上去的</p>
-
-<p>自定义span<br/>
-如何根据已有的span进行自定义？<br/>
-ReplacementSpan</p>
-
-<h3 id="toc_3">TextView的渲染优化</h3>
-
-<ul>
-<li>setText的过程，使用的时间对比</li>
-<li>使用StaticLayout和LayoutCache直接渲染，使用的时间</li>
-<li>弹幕中的文本渲染显示</li>
-<li><p>展开全文控件的优化</p></li>
-</ul>
-
-<ol>
-<li>Textview 文字排版分析问题(6.0以前，6.0以后)，解决方法</li>
-<li>Textview 带图片使用目前很多是直接使用imagview 加 textview </li>
-<li>阴影、边框、使用</li>
-<li>跑马灯 使用不当、正确使用,为什么marque会不动</li>
-<li>歌词 优化</li>
-</ol>
+<p>悲剧呀，重装，重新开始。</p>
 
                         
                       </div>
@@ -249,8 +188,6 @@ ReplacementSpan</p>
       	<p class="cat-list">
         
             <a href="%E4%B8%AA%E4%BA%BA.html"><strong>个人</strong></a>
-        
-            <a href="%E6%8A%80%E6%9C%AF.html"><strong>技术</strong></a>
          
         </p>
 
@@ -267,13 +204,7 @@ ReplacementSpan</p>
 	      
 		      
 			      <li class="post">
-			        <a href="14979477276893.html">TextView的渲染过程</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14979476632624.html">test</a>
+			        <a href="14979512018364.html">悲剧了。。。</a>
 			      </li>
 		     
 		   
