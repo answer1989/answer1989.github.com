@@ -1,0 +1,326 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  个人 - 博客
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="博客" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site: ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="www.baidu.com">test</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; 博客</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="%E4%B8%AA%E4%BA%BA.html">个人</a></li>
+        
+            <li><a href="%E6%8A%80%E6%9C%AF.html">技术</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="14979476632624.html">
+                
+                  <h1>test</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>View的显示过程的三个步骤，onMeasure，onLayout，onDraw。</p>
+
+<h3 id="toc_0">onMeasure过程</h3>
+
+<p>TextView是如何确定自己的宽度和高度的，是由TextView中的Layout来决定的。</p>
+
+<ul>
+<li><em>makeNewLayout</em>函数生成一个TextView使用的Layout，其中最主要的是通过<em>makeSingleLayout</em>函数来生成，Layout有以下三种
+
+<ul>
+<li>BoringLayout，只有一行从左到右的纯文字的Layout</li>
+<li>DynamicLayout，当文字类型为Spanbale时候，使用的Layout，同时也是可以动态改变的Layout，最终的渲染过程还是由StaticLayout完成</li>
+<li>StaticLayout，只能用于静态显示的Layout</li>
+<li>StaticLayout生成过程中，是什么样子的
+
+<ul>
+<li>分析整体文本</li>
+<li>拆分为段落</li>
+<li>计算整体段落的文本测量信息</li>
+<li>对文本进行折行</li>
+<li>根据最终行数把文本测量信息保存 </li>
+</ul></li>
+</ul></li>
+<li>通过生成Layout后，可以得到文本最终的显示排版，其中会包含这些文本显示需要的宽度和高度，至此，就确定了TextView的宽和高</li>
+</ul>
+
+<h3 id="toc_1">onLayout的过程</h3>
+
+<p>这个和普通的View的过程一样</p>
+
+<h3 id="toc_2">onDraw的过程</h3>
+
+<p>文本的渲染和显示都是由TextView中的Layout去完成的<br/>
+主要包含两步<br/>
+* drawBackground，绘制高亮的文字的背景<br/>
+* drawText，绘制文字<br/>
+  * 如果是纯文字，那么是由canvas.drawText函数完成 <br/>
+    * canvas.drawText，绘制的Text是如何确定显示位置的<br/>
+    * <a href="http://blog.csdn.net/harvic880925/article/details/50423762">http://blog.csdn.net/harvic880925/article/details/50423762</a><br/>
+  * 如果是Spanned Text，那么是由TextLine的draw函数完成<br/>
+    * Spanned Text是如何被绘制上去的</p>
+
+<p>自定义span<br/>
+如何根据已有的span进行自定义？<br/>
+ReplacementSpan</p>
+
+<h3 id="toc_3">TextView的渲染优化</h3>
+
+<ul>
+<li>setText的过程，使用的时间对比</li>
+<li>使用StaticLayout和LayoutCache直接渲染，使用的时间</li>
+<li>弹幕中的文本渲染显示</li>
+<li><p>展开全文控件的优化</p></li>
+</ul>
+
+<ol>
+<li>Textview 文字排版分析问题(6.0以前，6.0以后)，解决方法</li>
+<li>Textview 带图片使用目前很多是直接使用imagview 加 textview </li>
+<li>阴影、边框、使用</li>
+<li>跑马灯 使用不当、正确使用,为什么marque会不动</li>
+<li>歌词 优化</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/6/20</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E4%B8%AA%E4%BA%BA.html'>个人</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>博客</h1>
+                <div class="site-des">个人博客</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+<a target="_blank" class="github" target="_blank" href="https://github.com/answer1989" title="GitHub">GitHub</a>
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="%E4%B8%AA%E4%BA%BA.html"><strong>个人</strong></a>
+        
+            <a href="%E6%8A%80%E6%9C%AF.html"><strong>技术</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14979477276893.html">TextView的渲染过程</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14979476632624.html">test</a>
+			      </li>
+		     
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+
+  </body>
+</html>
